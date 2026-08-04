@@ -19,6 +19,7 @@ const statusVariant: Record<VehicleListing["status"], "success" | "warning" | "n
   reserved: "warning",
   sold: "neutral",
 };
+const statusDot: Record<VehicleListing["status"], string> = { available: "bg-emerald-500", reserved: "bg-amber-500", sold: "bg-neutral-500" };
 
 function formatPrice(cents: number) {
   return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(
@@ -45,7 +46,7 @@ export function VehicleCard({ listing }: { listing: VehicleListing }) {
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-2">
           <h3 className="text-base font-semibold text-foreground">{listing.title}</h3>
-          <Badge variant={statusVariant[listing.status]}>{statusLabel[listing.status]}</Badge>
+          <Badge variant={statusVariant[listing.status]}><span className={`h-1.5 w-1.5 rounded-full ${statusDot[listing.status]}`}/>{statusLabel[listing.status]}</Badge>
         </div>
         <p className="text-sm text-muted">2022 · Diesel · {listing.location}</p>
         <div className="mt-auto flex items-end justify-between border-t pt-4"><p className="text-lg font-bold text-foreground">
