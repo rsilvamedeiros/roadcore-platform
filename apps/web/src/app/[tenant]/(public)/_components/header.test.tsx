@@ -5,17 +5,23 @@ import { describe, expect, it } from "vitest";
 import { Header } from "./header";
 
 describe("Header", () => {
-  it("renders the brand and the desktop navigation links", () => {
-    render(<Header />);
+  it("renders the brand and the desktop navigation links scoped to the tenant", () => {
+    render(<Header tenant="default" />);
 
-    expect(screen.getByRole("link", { name: "RoadCore" })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: "Catalog" })).toHaveAttribute("href", "/catalog");
-    expect(screen.getByRole("link", { name: "Login" })).toHaveAttribute("href", "/login");
+    expect(screen.getByRole("link", { name: "RoadCore" })).toHaveAttribute("href", "/default");
+    expect(screen.getByRole("link", { name: "Catalog" })).toHaveAttribute(
+      "href",
+      "/default/catalog",
+    );
+    expect(screen.getByRole("link", { name: "Login" })).toHaveAttribute(
+      "href",
+      "/default/login",
+    );
   });
 
   it("opens the mobile menu in a drawer and closes it when a link is clicked", async () => {
     const user = userEvent.setup();
-    render(<Header />);
+    render(<Header tenant="default" />);
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 
@@ -24,7 +30,7 @@ describe("Header", () => {
     const drawer = await screen.findByRole("dialog");
     expect(within(drawer).getByRole("link", { name: "Catalog" })).toHaveAttribute(
       "href",
-      "/catalog",
+      "/default/catalog",
     );
 
     await user.click(within(drawer).getByRole("link", { name: "Catalog" }));

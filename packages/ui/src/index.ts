@@ -2,7 +2,7 @@ export { Avatar } from "./components/avatar";
 export type { AvatarProps } from "./components/avatar";
 export { Badge } from "./components/badge";
 export type { BadgeProps, BadgeVariant } from "./components/badge";
-export { Button } from "./components/button";
+export { Button, buttonVariants } from "./components/button";
 export type { ButtonProps, ButtonVariant } from "./components/button";
 export { Checkbox } from "./components/checkbox";
 export type { CheckboxProps } from "./components/checkbox";

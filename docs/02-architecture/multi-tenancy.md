@@ -8,7 +8,8 @@ Banco compartilhado com coluna `tenant_id` nas tabelas de negócio, índices com
 
 Pode ser resolvido por:
 
-- host público validado;
+- segmento de rota (`/[tenant]/...`), mecanismo primário no frontend (`docs/07-frontend/routing.md`);
+- host público validado, quando o tenant tiver domínio/subdomínio próprio — resolvido em middleware, que reescreve para o `/[tenant]/...` interno;
 - sessão;
 - API key;
 - token interno.

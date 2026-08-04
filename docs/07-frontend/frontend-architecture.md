@@ -15,8 +15,14 @@ Usar App Router. Priorizar Server Components para leitura e composição. Usar C
 
 ## Superfícies sugeridas
 
+Sob `/[tenant]/...` (ver `docs/07-frontend/routing.md`):
+
 - `(public)`;
-- `(portal)`;
-- `(backoffice)`;
-- `(superadmin)`;
-- `(auth)`.
+- `(auth)`;
+- `admin`;
+- `portal`;
+- `backoffice`.
+
+Fora de `/[tenant]`, cross-tenant:
+
+- `superadmin`.

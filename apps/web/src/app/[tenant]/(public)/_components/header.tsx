@@ -4,12 +4,6 @@ import { Drawer } from "@roadcore/ui";
 import Link from "next/link";
 import { useState } from "react";
 
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/catalog", label: "Catalog" },
-  { href: "/login", label: "Login" },
-];
-
 function MenuIcon() {
   return (
     <svg
@@ -26,13 +20,23 @@ function MenuIcon() {
   );
 }
 
-export function Header() {
+export interface HeaderProps {
+  tenant: string;
+}
+
+export function Header({ tenant }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { href: `/${tenant}`, label: "Home" },
+    { href: `/${tenant}/catalog`, label: "Catalog" },
+    { href: `/${tenant}/login`, label: "Login" },
+  ];
 
   return (
     <header className="border-b border-border bg-surface-elevated">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
-        <Link href="/" className="text-lg font-semibold text-foreground">
+        <Link href={`/${tenant}`} className="text-lg font-semibold text-foreground">
           RoadCore
         </Link>
 

@@ -1,13 +1,17 @@
 import Link from "next/link";
 
-const footerLinks = [
-  { href: "/", label: "Home" },
-  { href: "/catalog", label: "Catalog" },
-  { href: "/login", label: "Login" },
-];
+export interface FooterProps {
+  tenant: string;
+}
 
-export function Footer() {
+export function Footer({ tenant }: FooterProps) {
   const year = new Date().getFullYear();
+
+  const footerLinks = [
+    { href: `/${tenant}`, label: "Home" },
+    { href: `/${tenant}/catalog`, label: "Catalog" },
+    { href: `/${tenant}/login`, label: "Login" },
+  ];
 
   return (
     <footer className="border-t border-border bg-surface">

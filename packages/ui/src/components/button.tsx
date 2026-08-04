@@ -12,8 +12,8 @@ const variantClasses: Record<ButtonVariant, string> = {
   danger: "bg-danger text-primary-foreground hover:opacity-90",
 };
 
-export function Button({ variant = "primary", className, ...props }: ButtonProps) {
-  const classes = [
+export function buttonVariants(variant: ButtonVariant = "primary", className?: string) {
+  return [
     "inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium",
     "transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus",
     "disabled:pointer-events-none disabled:opacity-50",
@@ -22,6 +22,8 @@ export function Button({ variant = "primary", className, ...props }: ButtonProps
   ]
     .filter(Boolean)
     .join(" ");
+}
 
-  return <button className={classes} {...props} />;
+export function Button({ variant = "primary", className, ...props }: ButtonProps) {
+  return <button className={buttonVariants(variant, className)} {...props} />;
 }
