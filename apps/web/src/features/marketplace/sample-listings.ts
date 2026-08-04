@@ -2,6 +2,22 @@ import type { VehicleListing } from "./components/vehicle-card";
 
 export const sampleListings: VehicleListing[] = [
   {
+    id: "mercedes-l-1218-el",
+    title: "Mercedes-Benz L 1218 EL",
+    priceInCents: null,
+    location: "Itapeva, SP",
+    status: "available",
+    year: "2004",
+    mileage: "424.967 km",
+    imageSrc: "/tenants/fogueiracaminhoes/vehicles/mercedes-l-1218-el/01.jpg",
+    gallery: ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"].map(file => `/tenants/fogueiracaminhoes/vehicles/mercedes-l-1218-el/${file}`),
+    specs: [["Ano","2004"],["Quilometragem","424.967 km"],["Câmbio","5 marchas"],["Motor","4 cilindros"],["Carroceria","Nova · 6,50 m"],["Pneus","Sem câmara · medida 275"]],
+    features: ["Carroceria nova com 6,50 m","2 pneus novos na dianteira","4 pneus recapados na tração","Pneus sem câmara medida 275","Câmbio de 5 marchas","Sinistro informado no histórico"],
+    historyStatus: "reported",
+    historyNotice: "Com sinistro informado",
+    description: "Caminhão com carroceria nova de 6,50 metros, motor de 4 cilindros e câmbio de 5 marchas. O veículo possui registro de sinistro, condição informada de forma transparente e sujeita à conferência documental antes da negociação.",
+  },
+  {
     id: "ford-cargo-2428e",
     title: "Ford Cargo 2428e 6x2",
     priceInCents: null,

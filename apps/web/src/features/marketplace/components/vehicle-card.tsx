@@ -13,6 +13,9 @@ export interface VehicleListing {
   gallery?: string[];
   specs?: Array<[string, string]>;
   features?: string[];
+  historyStatus?: "reported";
+  historyNotice?: string;
+  description?: string;
 }
 
 const statusLabel: Record<VehicleListing["status"], string> = {
@@ -42,7 +45,7 @@ export function VehicleCard({ listing }: { listing: VehicleListing }) {
         className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-[#202023] to-[#0d0d0e] text-primary-700 transition-colors group-hover:text-primary-500"
         aria-hidden="true"
       >
-        <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#171717] shadow-sm">Seminovo certificado</span>
+        <span className={`absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider shadow-sm ${listing.historyStatus === "reported" ? "bg-amber-400 text-amber-950" : "bg-white text-[#171717]"}`}>{listing.historyNotice ?? "Seminovo certificado"}</span>
         {listing.imageSrc ? <Image src={listing.imageSrc} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105"/> : <svg viewBox="0 0 24 24" width="72" height="72" fill="none" stroke="currentColor" strokeWidth="1.25">
           <path
             d="M3 16V7a1 1 0 0 1 1-1h9v10M3 16h1m0 0a2 2 0 1 0 4 0m-4 0h9m4 0h1a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-.29-.7L20 9h-4v7m0 0a2 2 0 1 0 4 0m-4 0h-3"
