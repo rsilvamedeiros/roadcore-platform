@@ -190,7 +190,7 @@ Após implementar, apresente:
 ## Stack decidida
 
 - Gerenciador de pacotes e monorepo: pnpm workspaces + Turborepo (`docs/02-architecture/monorepo.md`).
-- Fundação de UI: Park UI (ADR `docs/adr/0003-ui-foundation.md`).
+- Fundação de UI: Ark UI + Tailwind CSS, estilo próprio (ADR `docs/adr/0003-ui-foundation.md`).
 - Testes: Vitest + Testing Library (unitário/integração), Playwright (E2E) (`docs/08-engineering/testing.md`).
 
 ## Fonte da verdade

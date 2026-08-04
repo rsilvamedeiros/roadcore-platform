@@ -6,7 +6,7 @@ Criar identidade própria, moderna e flexível, sem herdar a aparência reconhec
 
 ## Base decidida
 
-Park UI (Ark UI + Tailwind CSS), conforme `docs/adr/0003-ui-foundation.md`. Estilos são substituídos por tokens próprios; a aparência padrão do Park UI não deve vazar para produção.
+Ark UI (primitivos headless) + Tailwind CSS, com estilo próprio escrito em `packages/ui`, conforme `docs/adr/0003-ui-foundation.md`. Não há dependência de Park UI nem de sua aparência padrão.
 
 ## Camadas
 

@@ -88,7 +88,7 @@ A versão exata das dependências deve ser definida no bootstrap, após verifica
 - React
 - TypeScript
 - Tailwind CSS
-- Park UI como base de componentes (ADR [`0003`](docs/adr/0003-ui-foundation.md))
+- Ark UI (primitivos headless) com estilo próprio em Tailwind CSS (ADR [`0003`](docs/adr/0003-ui-foundation.md))
 - TanStack Query
 - TanStack Table
 - React Hook Form

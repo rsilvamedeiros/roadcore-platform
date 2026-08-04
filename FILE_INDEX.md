@@ -102,8 +102,8 @@
 - `packages/config/` — shared ESLint flat config and base `tsconfig`, consumed by every app/package
 - `packages/contracts/` — stub package (`@roadcore/contracts`), implementation pending
 - `packages/database/` — stub package (`@roadcore/database`), implementation pending
-- `packages/design-system/` — stub package (`@roadcore/design-system`), implementation pending (base: Park UI, ADR 0003)
+- `packages/design-system/` — `@roadcore/design-system`: shared semantic design tokens (`src/styles/tokens.css`), consumed by `apps/web` (ADR 0003)
 - `packages/observability/` — stub package (`@roadcore/observability`), implementation pending
 - `packages/shared/` — stub package (`@roadcore/shared`), implementation pending
-- `packages/ui/` — stub package (`@roadcore/ui`), implementation pending
+- `packages/ui/` — `@roadcore/ui`: first primitives on Ark UI + Tailwind (`Button`, `Switch`), tested with Vitest/Testing Library/user-event
 - `scripts/.gitkeep`
