@@ -1,0 +1,21 @@
+# Glossário
+
+- **Tenant**: organização cliente isolada na plataforma.
+- **Filial**: unidade operacional ou comercial de um tenant.
+- **Ativo pesado**: caminhão, ônibus, máquina, implemento ou equipamento comercializável.
+- **Cavalo mecânico**: veículo trator.
+- **Implemento**: equipamento acoplável ou complementar.
+- **Composição veicular**: combinação usada em uma viagem.
+- **Frete**: serviço comercial de transporte.
+- **Pedido de frete**: demanda recebida do cliente.
+- **Cotação**: estimativa comercial para atender o pedido.
+- **Ordem de transporte**: autorização operacional.
+- **Viagem**: execução logística vinculada a uma ordem.
+- **Agregado**: motorista ou veículo parceiro.
+- **Motorista comissionado**: profissional remunerado total ou parcialmente por regra variável.
+- **Acerto**: consolidação de valores devidos ao motorista ou parceiro.
+- **POD**: prova de entrega.
+- **Centro de custo**: agrupador gerencial de receitas e despesas.
+- **Feature flag**: chave para habilitar comportamento.
+- **Módulo**: conjunto licenciável de capacidades.
+- **RBAC**: controle de acesso baseado em papéis.
