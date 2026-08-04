@@ -1,6 +1,9 @@
 import { Badge, buttonVariants } from "@roadcore/ui";
 import Link from "next/link";
 
+import { VehicleCard } from "@/features/marketplace/components/vehicle-card";
+import { sampleListings } from "@/features/marketplace/sample-listings";
+
 const pillars = [
   {
     title: "Marketplace",
@@ -29,7 +32,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <main className="flex flex-1 flex-col">
-      <section className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-24 text-center">
+      <section className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center">
         <Badge variant="info">Marketplace · TMS · Fleet · ERP</Badge>
         <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           Run your heavy asset business on one platform
@@ -49,6 +52,22 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       <section className="border-t border-border bg-surface">
+        <div className="mx-auto max-w-5xl px-6 py-16">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-foreground">Featured listings</h2>
+            <Link href={`/${tenant}/catalog`} className="text-sm text-primary hover:underline">
+              View all
+            </Link>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {sampleListings.map((listing) => (
+              <VehicleCard key={listing.id} listing={listing} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
         <div className="mx-auto grid max-w-5xl gap-6 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar) => (
             <div

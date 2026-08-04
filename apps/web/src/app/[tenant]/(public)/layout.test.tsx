@@ -11,7 +11,7 @@ describe("PublicLayout", () => {
     });
     render(ui);
 
-    expect(screen.getByRole("link", { name: "RoadCore" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "RoadCore Platform" })).toBeInTheDocument();
     expect(screen.getByText("Page content")).toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toBeInTheDocument();
   });

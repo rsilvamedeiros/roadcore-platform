@@ -1,8 +1,11 @@
 "use client";
 
 import { Drawer } from "@roadcore/ui";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+import { getTenantTheme } from "@/lib/tenant-theme";
 
 function MenuIcon() {
   return (
@@ -26,6 +29,7 @@ export interface HeaderProps {
 
 export function Header({ tenant }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const theme = getTenantTheme(tenant);
 
   const navItems = [
     { href: `/${tenant}`, label: "Home" },
@@ -36,8 +40,20 @@ export function Header({ tenant }: HeaderProps) {
   return (
     <header className="border-b border-border bg-surface-elevated">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
-        <Link href={`/${tenant}`} className="text-lg font-semibold text-foreground">
-          RoadCore
+        <Link
+          href={`/${tenant}`}
+          className="flex items-center gap-2 text-lg font-semibold text-foreground"
+        >
+          {theme.logoSrc ? (
+            <Image
+              src={theme.logoSrc}
+              alt=""
+              width={32}
+              height={32}
+              className="rounded-full object-cover"
+            />
+          ) : null}
+          {theme.name}
         </Link>
 
         <nav aria-label="Main" className="hidden gap-6 text-sm sm:flex">

@@ -8,10 +8,16 @@ describe("Footer", () => {
     render(<Footer tenant="default" />);
 
     const year = new Date().getFullYear().toString();
-    expect(screen.getByText(new RegExp(year))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`${year}.*RoadCore Platform`))).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Catalog" })).toHaveAttribute(
       "href",
       "/default/catalog",
     );
+  });
+
+  it("uses the tenant's own name when a theme override exists", () => {
+    render(<Footer tenant="fogueiracaminhoes" />);
+
+    expect(screen.getByText(/Fogueira Caminhões/)).toBeInTheDocument();
   });
 });

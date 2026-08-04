@@ -20,5 +20,7 @@ describe("HomePage", () => {
       "/default/login",
     );
     expect(screen.getByText("Marketplace")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Featured listings" })).toBeInTheDocument();
+    expect(screen.getAllByRole("article")).not.toHaveLength(0);
   });
 });
