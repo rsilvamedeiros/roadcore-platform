@@ -28,9 +28,9 @@ function formatPrice(cents: number) {
 
 export function VehicleCard({ listing }: { listing: VehicleListing }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-surface-elevated">
+    <article className="group flex flex-col overflow-hidden rounded-lg border border-border bg-surface-elevated transition-shadow hover:shadow-lg">
       <div
-        className="flex aspect-[4/3] items-center justify-center bg-surface text-muted"
+        className="flex aspect-[4/3] items-center justify-center bg-surface text-muted transition-colors group-hover:bg-primary-50 group-hover:text-primary-400"
         aria-hidden="true"
       >
         <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">

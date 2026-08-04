@@ -38,7 +38,7 @@ export function Header({ tenant }: HeaderProps) {
   ];
 
   return (
-    <header className="border-b border-border bg-surface-elevated">
+    <header className="sticky top-0 z-40 border-b border-border bg-surface-elevated/80 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
         <Link
           href={`/${tenant}`}
