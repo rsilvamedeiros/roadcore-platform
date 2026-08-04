@@ -19,6 +19,7 @@ export function Header({ tenant }: HeaderProps) {
     { href: `/${tenant}/financing`, label: "Financiamento" },
     { href: `/${tenant}/freight`, label: "Fretes" },
     { href: `/${tenant}/about`, label: "A empresa" },
+    { href: `/${tenant}/advertise`, label: "Anuncie" },
   ];
   const logo = theme.logoSrc ? <Image src={theme.logoSrc} alt={theme.name} width={190} height={52} priority className="h-[52px] w-auto max-w-[180px] object-contain sm:max-w-[205px]" /> : <BrandLogo name={theme.name} />;
 
@@ -27,7 +28,7 @@ export function Header({ tenant }: HeaderProps) {
     <header className="sticky top-0 z-40 border-b border-black/5 bg-white/95 shadow-[0_1px_12px_rgba(0,0,0,.04)] backdrop-blur-xl">
       <div className="page-shell flex h-[80px] items-center justify-between gap-5">
         <Link href={`/${tenant}`} className="flex items-center gap-3 text-foreground" aria-label={theme.name}>{logo}</Link>
-        <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-5 xl:flex">
           {links.map((item) => <Link key={item.label} href={item.href} className="relative py-7 text-[13px] font-semibold text-[#4b4b4b] transition after:absolute after:inset-x-0 after:bottom-4 after:h-0.5 after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:text-black hover:after:scale-x-100">{item.label}</Link>)}
         </nav>
         <div className="hidden items-center gap-4 sm:flex">
@@ -35,7 +36,7 @@ export function Header({ tenant }: HeaderProps) {
           <Link href={`/${tenant}/login`} className="text-[13px] font-semibold text-foreground hover:text-primary">Entrar</Link>
           <Link href={`/${tenant}/contact`} className={buttonVariants("primary", "min-h-11 rounded-xl px-5 py-2 text-[13px] !text-white")}>Falar com especialista <span aria-hidden="true" className="ml-2">→</span></Link>
         </div>
-        <div className="lg:hidden"><Drawer open={open} onOpenChange={setOpen} title="Navegação" trigger={<><svg viewBox="0 0 24 24" width="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16M4 12h16M4 17h16" /></svg><span className="sr-only">Abrir menu</span></>}>
+        <div className="xl:hidden"><Drawer open={open} onOpenChange={setOpen} title="Navegação" trigger={<><svg viewBox="0 0 24 24" width="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16M4 12h16M4 17h16" /></svg><span className="sr-only">Abrir menu</span></>}>
           <nav className="flex flex-col gap-5">{links.map(item => <Link key={item.label} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}<Link href={`/${tenant}/login`} onClick={() => setOpen(false)}>Área do cliente</Link></nav>
         </Drawer></div>
       </div>

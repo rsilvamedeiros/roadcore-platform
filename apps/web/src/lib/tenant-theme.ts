@@ -15,6 +15,7 @@ export interface TenantColorScale {
 export interface TenantTheme {
   name: string;
   logoSrc: string | null;
+  logoSrcDark?: string;
   primary?: TenantColorScale;
 }
 
@@ -40,6 +41,7 @@ const tenantThemes: Record<string, TenantTheme> = {
   fogueiracaminhoes: {
     name: "Fogueira Caminhões",
     logoSrc: "/tenants/fogueiracaminhoes/logo-horizontal.svg",
+    logoSrcDark: "/tenants/fogueiracaminhoes/logo-horizontal-dark.svg",
     primary: {
       50: "#fdeded",
       100: "#fadbdb",
