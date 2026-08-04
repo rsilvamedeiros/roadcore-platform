@@ -4,9 +4,9 @@
 
 Criar identidade própria, moderna e flexível, sem herdar a aparência reconhecível do shadcn/ui.
 
-## Base recomendada
+## Base decidida
 
-Avaliar Ark UI e Park UI. Registrar escolha em ADR após protótipo.
+Park UI (Ark UI + Tailwind CSS), conforme `docs/adr/0003-ui-foundation.md`. Estilos são substituídos por tokens próprios; a aparência padrão do Park UI não deve vazar para produção.
 
 ## Camadas
 

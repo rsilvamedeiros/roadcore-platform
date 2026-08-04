@@ -65,6 +65,7 @@
 - `docs/06-api/webhooks.md`
 - `docs/07-frontend/forms.md`
 - `docs/07-frontend/frontend-architecture.md`
+- `docs/07-frontend/i18n.md`
 - `docs/07-frontend/performance.md`
 - `docs/07-frontend/routing.md`
 - `docs/07-frontend/state-management.md`

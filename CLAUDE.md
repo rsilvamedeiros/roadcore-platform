@@ -34,6 +34,8 @@ A Fogueira Caminhões é o primeiro tenant. Ela não representa o limite do prod
 - Não criar dependência circular entre módulos.
 - Não alterar contrato público sem versionamento ou migração.
 - Não criar dependência nova sem justificar necessidade, manutenção e licença.
+- Não escrever identificadores, comentários ou mensagens de commit em português no código; código é em inglês (ver `docs/08-engineering/coding-style.md`). Documentação de negócio e produto continua em português.
+- Não expor variável de ambiente sensível ao bundle do cliente (Next.js); apenas variáveis explicitamente públicas usam prefixo `NEXT_PUBLIC_`.
 
 ## Arquitetura
 
@@ -159,6 +161,37 @@ Após implementar, apresente:
 - limitações;
 - documentação atualizada;
 - próximos passos necessários.
+
+## Git e commits
+
+- NUNCA fazer commit automaticamente. Commits são sempre feitos MANUALMENTE pelo usuário, após ele validar o código.
+- Não executar `git commit`, `git push` ou qualquer operação que altere o histórico/remote sem pedido explícito do usuário para aquela ação específica, mesmo que uma alteração de código já tenha sido aprovada.
+- Não usar `git add -A` ou `git add .`; adicionar arquivos específicos por nome.
+- Nunca usar `--no-verify`, `--no-gpg-sign` ou pular hooks, salvo pedido explícito.
+- Preferir sempre criar um novo commit a usar `--amend`, salvo pedido explícito.
+- Mensagens de commit sempre em **inglês**, no padrão [Conventional Commits](https://www.conventionalcommits.org/):
+
+  ```text
+  <tipo>(<escopo opcional>): <resumo curto no imperativo>
+
+  <corpo opcional explicando o porquê, não o quê>
+  ```
+
+  Tipos comuns: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`, `perf`, `build`, `ci`.
+
+  Exemplo:
+
+  ```text
+  feat(freight): add idempotency key to quote creation
+
+  Prevents duplicate quotes when the client retries after a timeout.
+  ```
+
+## Stack decidida
+
+- Gerenciador de pacotes e monorepo: pnpm workspaces + Turborepo (`docs/02-architecture/monorepo.md`).
+- Fundação de UI: Park UI (ADR `docs/adr/0003-ui-foundation.md`).
+- Testes: Vitest + Testing Library (unitário/integração), Playwright (E2E) (`docs/08-engineering/testing.md`).
 
 ## Fonte da verdade
 

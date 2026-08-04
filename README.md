@@ -77,13 +77,18 @@ roadcore-platform/
 
 A versão exata das dependências deve ser definida no bootstrap, após verificação de compatibilidade.
 
+### Monorepo
+
+- pnpm workspaces (via corepack)
+- Turborepo
+
 ### Frontend
 
 - Next.js com App Router
 - React
 - TypeScript
 - Tailwind CSS
-- Ark UI ou Park UI como base de componentes
+- Park UI como base de componentes (ADR [`0003`](docs/adr/0003-ui-foundation.md))
 - TanStack Query
 - TanStack Table
 - React Hook Form
