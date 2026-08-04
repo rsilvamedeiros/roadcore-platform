@@ -3,6 +3,7 @@ node_modules
 dist
 build
 coverage
+*.tsbuildinfo
 .env
 .env.*
 !.env.example
@@ -11,6 +12,9 @@ coverage
 Thumbs.db
 .turbo
 .vercel
+playwright-report
+test-results
+blob-report
 .idea
 .vscode/*
 !.vscode/extensions.json

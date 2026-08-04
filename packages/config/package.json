@@ -1,0 +1,21 @@
+{
+  "name": "@roadcore/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./eslint/base": "./eslint/base.mjs",
+    "./typescript/base": "./typescript/base.json"
+  },
+  "scripts": {
+    "lint": "echo \"no lint step\"",
+    "typecheck": "echo \"no typecheck step\"",
+    "test": "echo \"no test step\"",
+    "build": "echo \"no build step\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "typescript-eslint": "^8.20.0"
+  }
+}

@@ -127,6 +127,20 @@ A versão exata das dependências deve ser definida no bootstrap, após verifica
 6. Registre decisões estruturais em `docs/adr/`.
 7. Não implemente funcionalidades específicas de um tenant no núcleo da plataforma.
 
+## Rodando o projeto
+
+Requer Node conforme `.nvmrc` e `corepack enable` (para o pnpm fixado em `packageManager`).
+
+```bash
+pnpm install
+pnpm dev          # apps/web em http://localhost:3000
+pnpm lint
+pnpm typecheck
+pnpm test         # unitário/integração (Vitest)
+pnpm test:e2e     # E2E (Playwright; requer `pnpm exec playwright install` na primeira vez)
+pnpm build
+```
+
 ## Roadmap inicial
 
 ### Fase 0 — Fundação

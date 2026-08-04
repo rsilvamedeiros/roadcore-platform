@@ -1,11 +1,19 @@
 # Índice de arquivos
 
+- `.editorconfig`
 - `.gitignore`
+- `.nvmrc`
+- `.prettierignore`
+- `.prettierrc.json`
 - `CLAUDE.md`
 - `README.md`
-- `apps/api/.gitkeep`
-- `apps/web/.gitkeep`
-- `apps/worker/.gitkeep`
+- `package.json` (root workspace scripts)
+- `pnpm-workspace.yaml`
+- `turbo.json`
+- `tsconfig.json` (root, extends `packages/config/typescript/base.json`)
+- `apps/api/.gitkeep` (bootstrap pending)
+- `apps/web/` — Next.js App Router app (pnpm + Turborepo, Tailwind, Vitest/Testing Library, Playwright); surfaces under `src/app/`: `(public)`, `(auth)`, `portal`, `backoffice`, `superadmin`
+- `apps/worker/.gitkeep` (bootstrap pending)
 - `docs/00-overview/glossary.md`
 - `docs/00-overview/product-manifest.md`
 - `docs/00-overview/product.md`
@@ -90,12 +98,12 @@
 - `docs/adr/0002-multi-tenant-shared-database.md`
 - `docs/adr/0003-ui-foundation.md`
 - `infrastructure/.gitkeep`
-- `packages/auth/.gitkeep`
-- `packages/config/.gitkeep`
-- `packages/contracts/.gitkeep`
-- `packages/database/.gitkeep`
-- `packages/design-system/.gitkeep`
-- `packages/observability/.gitkeep`
-- `packages/shared/.gitkeep`
-- `packages/ui/.gitkeep`
+- `packages/auth/` — stub package (`@roadcore/auth`), implementation pending
+- `packages/config/` — shared ESLint flat config and base `tsconfig`, consumed by every app/package
+- `packages/contracts/` — stub package (`@roadcore/contracts`), implementation pending
+- `packages/database/` — stub package (`@roadcore/database`), implementation pending
+- `packages/design-system/` — stub package (`@roadcore/design-system`), implementation pending (base: Park UI, ADR 0003)
+- `packages/observability/` — stub package (`@roadcore/observability`), implementation pending
+- `packages/shared/` — stub package (`@roadcore/shared`), implementation pending
+- `packages/ui/` — stub package (`@roadcore/ui`), implementation pending
 - `scripts/.gitkeep`
