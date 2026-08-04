@@ -17,6 +17,10 @@ describe("Header", () => {
       "href",
       "/default/catalog",
     );
+    expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
+      "href",
+      "/default/contact",
+    );
     expect(screen.getByRole("link", { name: "Login" })).toHaveAttribute(
       "href",
       "/default/login",

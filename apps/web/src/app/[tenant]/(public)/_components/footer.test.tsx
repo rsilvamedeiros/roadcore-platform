@@ -13,11 +13,15 @@ describe("Footer", () => {
       "href",
       "/default/catalog",
     );
+    expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
+      "href",
+      "/default/contact",
+    );
   });
 
   it("uses the tenant's own name when a theme override exists", () => {
     render(<Footer tenant="fogueiracaminhoes" />);
 
-    expect(screen.getByText(/Fogueira Caminhões/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Fogueira Caminhões/).length).toBeGreaterThan(0);
   });
 });

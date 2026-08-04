@@ -7,6 +7,8 @@ import { useState } from "react";
 
 import { getTenantTheme } from "@/lib/tenant-theme";
 
+import { BrandMark } from "./brand-mark";
+
 function MenuIcon() {
   return (
     <svg
@@ -34,6 +36,7 @@ export function Header({ tenant }: HeaderProps) {
   const navItems = [
     { href: `/${tenant}`, label: "Home" },
     { href: `/${tenant}/catalog`, label: "Catalog" },
+    { href: `/${tenant}/contact`, label: "Contact" },
     { href: `/${tenant}/login`, label: "Login" },
   ];
 
@@ -52,7 +55,9 @@ export function Header({ tenant }: HeaderProps) {
               height={32}
               className="rounded-full object-cover"
             />
-          ) : null}
+          ) : (
+            <BrandMark />
+          )}
           {theme.name}
         </Link>
 

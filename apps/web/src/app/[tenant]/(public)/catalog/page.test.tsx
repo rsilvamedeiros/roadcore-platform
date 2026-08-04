@@ -4,10 +4,13 @@ import { describe, expect, it } from "vitest";
 import CatalogPage from "./page";
 
 describe("CatalogPage", () => {
-  it("renders the listing grid", () => {
-    render(<CatalogPage />);
+  it("renders the listing grid linking to each listing's detail page", async () => {
+    const ui = await CatalogPage({ params: Promise.resolve({ tenant: "default" }) });
+    render(ui);
 
     expect(screen.getByRole("heading", { name: "Catalog" })).toBeInTheDocument();
-    expect(screen.getAllByRole("article").length).toBeGreaterThan(0);
+    const articles = screen.getAllByRole("article");
+    expect(articles.length).toBeGreaterThan(0);
+    expect(articles[0].closest("a")).toHaveAttribute("href", "/default/catalog/1");
   });
 });

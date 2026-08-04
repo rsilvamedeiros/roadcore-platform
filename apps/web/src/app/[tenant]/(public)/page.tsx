@@ -94,7 +94,9 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {sampleListings.map((listing) => (
-              <VehicleCard key={listing.id} listing={listing} />
+              <Link key={listing.id} href={`/${tenant}/catalog/${listing.id}`}>
+                <VehicleCard listing={listing} />
+              </Link>
             ))}
           </div>
         </div>
