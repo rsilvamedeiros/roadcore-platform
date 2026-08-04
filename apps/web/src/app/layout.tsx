@@ -15,14 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RoadCore Platform",
-  description: "Marketplace, TMS, fleet and ERP platform for heavy assets.",
+  title: "RoadCore | Gestão que move negócios",
+  description: "Veículos, fretes e gestão para quem vive a estrada.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

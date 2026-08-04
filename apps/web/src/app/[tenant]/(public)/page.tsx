@@ -1,170 +1,27 @@
-import { Badge, buttonVariants } from "@roadcore/ui";
+import { buttonVariants } from "@roadcore/ui";
 import Link from "next/link";
-
 import { VehicleCard } from "@/features/marketplace/components/vehicle-card";
 import { sampleListings } from "@/features/marketplace/sample-listings";
 
-import { ErpIcon, FleetIcon, FreightIcon, MarketplaceIcon } from "./_components/icons";
-
-const pillars = [
-  {
-    title: "Marketplace",
-    description: "Browse trucks, trailers, buses and heavy equipment from verified sellers.",
-    Icon: MarketplaceIcon,
-  },
-  {
-    title: "Freight & TMS",
-    description: "Request quotes, dispatch trips and track deliveries end to end.",
-    Icon: FreightIcon,
-  },
-  {
-    title: "Fleet & maintenance",
-    description: "Keep vehicles, preventive plans and service orders under control.",
-    Icon: FleetIcon,
-  },
-  {
-    title: "ERP",
-    description: "Financial, purchasing and cost tracking connected to every operation.",
-    Icon: ErpIcon,
-  },
+const benefits = [
+  ["Curadoria de verdade", "Veículos vistoriados e histórico transparente para uma decisão segura."],
+  ["Negociação assistida", "Especialistas acompanham você da proposta à entrega das chaves."],
+  ["Tudo em um só lugar", "Financiamento, documentação, troca e logística sem complicação."],
 ];
 
-const steps = [
-  {
-    title: "Browse the catalog",
-    description: "Filter by asset type, condition and location across verified listings.",
-  },
-  {
-    title: "Request a quote",
-    description: "Talk to the seller or request a freight quote directly from the listing.",
-  },
-  {
-    title: "Get matched",
-    description: "The sales team confirms availability, terms and financing options.",
-  },
-  {
-    title: "Close the deal",
-    description: "Finish the paperwork and take delivery — all tracked in one place.",
-  },
-];
-
-interface HomePageProps {
-  params: Promise<{ tenant: string }>;
-}
-
-export default async function HomePage({ params }: HomePageProps) {
+export default async function HomePage({ params }: { params: Promise<{ tenant: string }> }) {
   const { tenant } = await params;
-
-  return (
-    <main className="flex flex-1 flex-col">
-      <section className="bg-gradient-to-b from-primary-50 to-background">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-20 text-center sm:py-28">
-          <Badge variant="info">Marketplace · TMS · Fleet · ERP</Badge>
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
-            Run your heavy asset business on one platform
-          </h1>
-          <p className="max-w-xl text-base text-muted sm:text-lg">
-            Buy, sell and finance trucks, trailers and equipment. Dispatch freight, manage your
-            fleet and keep the books straight — all in one place.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link href={`/${tenant}/catalog`} className={buttonVariants("primary")}>
-              Browse the catalog
-            </Link>
-            <Link href={`/${tenant}/login`} className={buttonVariants("secondary")}>
-              Sign in
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border">
-        <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-2xl font-semibold text-foreground">Featured listings</h2>
-              <p className="mt-1 text-sm text-muted">A sample of what buyers find in the catalog.</p>
-            </div>
-            <Link
-              href={`/${tenant}/catalog`}
-              className="shrink-0 text-sm font-medium text-primary hover:underline"
-            >
-              View all →
-            </Link>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {sampleListings.map((listing) => (
-              <Link key={listing.id} href={`/${tenant}/catalog/${listing.id}`}>
-                <VehicleCard listing={listing} />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border bg-surface">
-        <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-          <div className="mb-10 text-center">
-            <h2 className="text-2xl font-semibold text-foreground">One platform, every operation</h2>
-            <p className="mx-auto mt-2 max-w-xl text-sm text-muted">
-              Each module works on its own or together, so you only turn on what you need.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {pillars.map(({ title, description, Icon }) => (
-              <div
-                key={title}
-                className="flex flex-col gap-3 rounded-lg border border-border bg-surface-elevated p-6 transition-shadow hover:shadow-md"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary-100 text-primary-700">
-                  <Icon />
-                </div>
-                <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-                <p className="text-sm text-muted">{description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border">
-        <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-          <div className="mb-10 text-center">
-            <h2 className="text-2xl font-semibold text-foreground">How it works</h2>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((step, index) => (
-              <div key={step.title} className="flex flex-col gap-2">
-                <span className="text-sm font-semibold text-primary">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-sm font-semibold text-foreground">{step.title}</h3>
-                <p className="text-sm text-muted">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border bg-primary-900">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-16 text-center sm:py-20">
-          <h2 className="text-2xl font-semibold text-white sm:text-3xl">Ready to get started?</h2>
-          <p className="max-w-xl text-sm text-primary-100">
-            Browse the catalog or sign in to manage your listings, freight and fleet.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link href={`/${tenant}/catalog`} className={buttonVariants("primary")}>
-              Browse the catalog
-            </Link>
-            <Link
-              href={`/${tenant}/login`}
-              className="inline-flex items-center justify-center rounded-md border border-primary-100/40 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-800"
-            >
-              Sign in
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+  return <main className="flex-1">
+    <section className="relative overflow-hidden bg-[#08152e] text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,rgba(59,130,246,.28),transparent_34%),radial-gradient(circle_at_10%_100%,rgba(29,78,216,.2),transparent_30%)]" />
+      <div className="page-shell relative grid min-h-[610px] items-center gap-12 py-20 lg:grid-cols-[1.05fr_.95fr]">
+        <div><p className="mb-5 text-xs font-semibold uppercase tracking-[.2em] text-blue-300">Negócios que movem o Brasil</p><h1 className="text-balance max-w-3xl text-5xl font-semibold leading-[1.04] tracking-[-.04em] sm:text-6xl lg:text-7xl">O veículo certo para o seu próximo caminho.</h1><p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">Compra, venda e gestão de veículos pesados com procedência, atendimento humano e tecnologia de ponta.</p><div className="mt-9 flex flex-wrap gap-3"><Link href={`/${tenant}/catalog`} className={buttonVariants("primary")}>Explorar estoque →</Link><Link href={`/${tenant}/contact`} className="inline-flex items-center rounded-md border border-white/25 px-4 py-2 text-sm font-semibold hover:bg-white/10">Quero vender meu veículo</Link></div></div>
+        <div className="relative hidden lg:block"><div className="absolute -inset-8 rounded-full bg-blue-500/10 blur-3xl" /><div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur"><div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400/30 to-slate-950 text-blue-200"><svg viewBox="0 0 24 24" width="180" fill="none" stroke="currentColor" strokeWidth=".8"><path d="M3 16V7a1 1 0 0 1 1-1h9v10M3 16h1m0 0a2 2 0 1 0 4 0m-4 0h9m4 0h1a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-.29-.7L20 9h-4v7m0 0a2 2 0 1 0 4 0m-4 0h-3" /></svg></div><div className="mt-5 flex justify-between"><div><p className="text-xs text-slate-400">Destaque da semana</p><p className="mt-1 font-semibold">Volvo FH 540 6x4 · 2022</p></div><span className="h-fit rounded-full bg-emerald-400/15 px-3 py-1 text-xs text-emerald-300">Disponível</span></div></div></div>
+      </div>
+    </section>
+    <section className="border-b border-border bg-white"><div className="page-shell grid divide-y py-1 sm:grid-cols-3 sm:divide-x sm:divide-y-0">{[["+ 1.200","veículos negociados"],["18 anos","de experiência"],["4,9 / 5","avaliação dos clientes"]].map(([a,b])=><div key={b} className="px-6 py-7 text-center"><strong className="text-2xl text-primary-900">{a}</strong><p className="mt-1 text-xs uppercase tracking-wider text-muted">{b}</p></div>)}</div></section>
+    <section className="page-shell py-20 sm:py-28"><div className="flex items-end justify-between gap-4"><div><p className="eyebrow">Seleção especial</p><h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Oportunidades em destaque</h2><p className="mt-3 text-muted">Veículos selecionados pela nossa equipe, prontos para trabalhar.</p></div><Link href={`/${tenant}/catalog`} className="hidden text-sm font-semibold text-primary sm:block">Ver estoque completo →</Link></div><div className="mt-10 grid gap-6 md:grid-cols-3">{sampleListings.map(item=><Link key={item.id} href={`/${tenant}/catalog/${item.id}`}><VehicleCard listing={item} /></Link>)}</div></section>
+    <section className="bg-surface"><div className="page-shell py-20 sm:py-24"><div className="max-w-xl"><p className="eyebrow">Por que escolher a gente</p><h2 className="mt-3 text-3xl font-semibold tracking-tight">Confiança em cada quilômetro.</h2></div><div className="mt-12 grid gap-6 md:grid-cols-3">{benefits.map(([title,copy],i)=><article key={title} className="panel p-7"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-50 text-sm font-bold text-primary">0{i+1}</span><h3 className="mt-6 text-lg font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-muted">{copy}</p></article>)}</div></div></section>
+    <section className="page-shell py-20"><div className="overflow-hidden rounded-3xl bg-primary-800 px-7 py-12 text-white sm:px-14 sm:py-16"><div className="max-w-2xl"><p className="text-sm font-semibold text-primary-200">Tem um veículo para vender?</p><h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Nós cuidamos de todo o caminho.</h2><p className="mt-4 text-primary-100">Avaliação justa, divulgação profissional e apoio documental.</p><Link href={`/${tenant}/contact`} className="mt-7 inline-flex rounded-md bg-white px-5 py-3 text-sm font-semibold text-primary-900">Solicitar avaliação gratuita</Link></div></div></section>
+  </main>;
 }

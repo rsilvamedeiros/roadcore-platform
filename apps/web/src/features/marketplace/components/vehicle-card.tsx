@@ -9,9 +9,9 @@ export interface VehicleListing {
 }
 
 const statusLabel: Record<VehicleListing["status"], string> = {
-  available: "Available",
-  reserved: "Reserved",
-  sold: "Sold",
+  available: "Disponível",
+  reserved: "Reservado",
+  sold: "Vendido",
 };
 
 const statusVariant: Record<VehicleListing["status"], "success" | "warning" | "neutral"> = {
@@ -28,12 +28,13 @@ function formatPrice(cents: number) {
 
 export function VehicleCard({ listing }: { listing: VehicleListing }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-lg border border-border bg-surface-elevated transition-shadow hover:shadow-lg">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface-elevated transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div
-        className="flex aspect-[4/3] items-center justify-center bg-surface text-muted transition-colors group-hover:bg-primary-50 group-hover:text-primary-400"
+        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-surface to-primary-100 text-primary-300 transition-colors group-hover:text-primary-500"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-primary-800 shadow-sm">Seminovo certificado</span>
+        <svg viewBox="0 0 24 24" width="72" height="72" fill="none" stroke="currentColor" strokeWidth="1.25">
           <path
             d="M3 16V7a1 1 0 0 1 1-1h9v10M3 16h1m0 0a2 2 0 1 0 4 0m-4 0h9m4 0h1a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-.29-.7L20 9h-4v7m0 0a2 2 0 1 0 4 0m-4 0h-3"
             strokeLinecap="round"
@@ -41,12 +42,12 @@ export function VehicleCard({ listing }: { listing: VehicleListing }) {
           />
         </svg>
       </div>
-      <div className="flex flex-1 flex-col gap-2 p-4">
+      <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-sm font-semibold text-foreground">{listing.title}</h3>
+          <h3 className="text-base font-semibold text-foreground">{listing.title}</h3>
           <Badge variant={statusVariant[listing.status]}>{statusLabel[listing.status]}</Badge>
         </div>
-        <p className="text-sm text-muted">{listing.location}</p>
+        <p className="text-sm text-muted">2022 · Diesel · {listing.location}</p>
         <p className="mt-auto text-base font-semibold text-foreground">
           {formatPrice(listing.priceInCents)}
         </p>

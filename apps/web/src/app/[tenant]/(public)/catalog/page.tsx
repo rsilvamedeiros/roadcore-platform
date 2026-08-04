@@ -1,30 +1,7 @@
 import Link from "next/link";
-
 import { VehicleCard } from "@/features/marketplace/components/vehicle-card";
 import { sampleListings } from "@/features/marketplace/sample-listings";
-
-interface CatalogPageProps {
-  params: Promise<{ tenant: string }>;
-}
-
-export default async function CatalogPage({ params }: CatalogPageProps) {
-  const { tenant } = await params;
-
-  return (
-    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-6 py-16">
-      <div>
-        <h1 className="text-2xl font-semibold text-foreground">Catalog</h1>
-        <p className="text-muted">
-          Search and filters are not implemented yet — see docs/04-modules/marketplace.md.
-        </p>
-      </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sampleListings.map((listing) => (
-          <Link key={listing.id} href={`/${tenant}/catalog/${listing.id}`}>
-            <VehicleCard listing={listing} />
-          </Link>
-        ))}
-      </div>
-    </main>
-  );
+export default async function CatalogPage({ params }: { params: Promise<{ tenant: string }> }) {
+ const { tenant } = await params;
+ return <main className="flex-1 bg-surface"><div className="page-shell py-14 sm:py-20"><p className="eyebrow">Nosso estoque</p><div className="mt-3 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><h1 className="text-4xl font-semibold tracking-tight">Encontre seu próximo veículo</h1><p className="mt-3 text-muted">Procedência e transparência para escolher com segurança.</p></div><span className="text-sm text-muted">{sampleListings.length} veículos encontrados</span></div><div className="panel mt-9 grid gap-3 p-4 sm:grid-cols-[2fr_1fr_1fr_auto]"><input aria-label="Buscar" placeholder="Busque por marca ou modelo" className="rounded-lg border bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary"/><select aria-label="Tipo" className="rounded-lg border bg-white px-4 py-3 text-sm"><option>Todos os tipos</option><option>Caminhões</option><option>Carretas</option></select><select aria-label="Localização" className="rounded-lg border bg-white px-4 py-3 text-sm"><option>Todo o Brasil</option><option>Paraná</option><option>Santa Catarina</option></select><button className="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white">Buscar</button></div><div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{sampleListings.map(item=><Link key={item.id} href={`/${tenant}/catalog/${item.id}`}><VehicleCard listing={item}/></Link>)}</div></div></main>;
 }

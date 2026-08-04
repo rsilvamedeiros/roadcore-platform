@@ -1,8 +1,3 @@
-export default function LoginPage() {
-  return (
-    <main className="rounded-lg bg-surface-elevated p-8 text-center shadow-sm">
-      <h1 className="text-xl font-semibold text-foreground">Login</h1>
-      <p className="text-muted">Auth surface placeholder — see docs/04-modules/authentication.md.</p>
-    </main>
-  );
-}
+import { Button, Input } from "@roadcore/ui";
+import Link from "next/link";
+export default async function LoginPage({ params }: { params: Promise<{tenant:string}>}) { const {tenant}=await params; return <main className="w-full max-w-md"><div className="mb-8 text-center"><p className="eyebrow">Área segura</p><h1 className="mt-3 text-3xl font-semibold tracking-tight">Bem-vindo de volta</h1><p className="mt-2 text-sm text-muted">Acesse seus negócios, documentos e operações.</p></div><form className="panel flex flex-col gap-5 p-7 sm:p-9"><label className="text-sm font-medium">E-mail<Input aria-label="E-mail" name="email" type="email" placeholder="nome@empresa.com.br" className="mt-2"/></label><label className="text-sm font-medium">Senha<Input aria-label="Senha" name="password" type="password" placeholder="Sua senha" className="mt-2"/></label><div className="flex justify-end"><button type="button" className="text-xs font-semibold text-primary">Esqueci minha senha</button></div><Button variant="primary" type="submit">Entrar na plataforma</Button><p className="text-center text-xs text-muted">Ainda não tem acesso? <Link href={`/${tenant}/contact`} className="font-semibold text-primary">Fale com nossa equipe</Link></p></form></main>;}

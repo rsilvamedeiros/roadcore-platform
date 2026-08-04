@@ -1,37 +1,3 @@
 import { Button, Checkbox, Input, Select, Switch } from "@roadcore/ui";
-
-const assetTypeOptions = [
-  { label: "Truck", value: "truck" },
-  { label: "Trailer", value: "trailer" },
-  { label: "Bus", value: "bus" },
-];
-
-export default function AdminNewLeadPage() {
-  return (
-    <main className="flex flex-1 flex-col items-center gap-6 p-8">
-      <div className="w-full max-w-sm">
-        <h1 className="text-xl font-semibold text-foreground">New lead</h1>
-        <p className="text-sm text-muted">
-          Log a lead received by phone or e-mail — see docs/04-modules/crm.md.
-        </p>
-
-        <form className="mt-6 flex flex-col gap-4 rounded-lg border border-border bg-surface-elevated p-6">
-          <Input aria-label="Company name" name="companyName" placeholder="Company name" />
-          <Select
-            label="Asset type"
-            name="assetType"
-            options={assetTypeOptions}
-            placeholder="Choose one"
-          />
-          <Checkbox label="I agree to be contacted" name="acceptContact" />
-          <div className="flex items-center justify-between">
-            <Switch label="Notify sales team" name="notify" />
-            <Button variant="primary" type="submit">
-              Save lead
-            </Button>
-          </div>
-        </form>
-      </div>
-    </main>
-  );
-}
+const options=[{label:"Caminhão",value:"truck"},{label:"Carreta",value:"trailer"},{label:"Ônibus",value:"bus"}];
+export default function AdminNewLeadPage(){return <main className="flex-1 bg-surface p-5 sm:p-10"><div className="mx-auto max-w-2xl"><p className="eyebrow">Comercial</p><h1 className="mt-2 text-3xl font-semibold tracking-tight">Cadastrar nova oportunidade</h1><p className="mt-2 text-sm text-muted">Registre os dados iniciais para o time comercial dar continuidade.</p><form className="panel mt-8 grid gap-5 p-6 sm:p-8"><Input aria-label="Nome da empresa" name="companyName" placeholder="Nome da empresa ou cliente"/><div className="grid gap-4 sm:grid-cols-2"><Select label="Tipo de veículo" name="assetType" options={options} placeholder="Selecione"/><Input aria-label="Telefone" name="phone" placeholder="Telefone / WhatsApp"/></div><Input aria-label="E-mail" name="email" type="email" placeholder="E-mail"/><Input aria-label="Origem" name="source" placeholder="Origem do contato"/><Checkbox label="Cliente autorizou o contato" name="acceptContact"/><div className="flex items-center justify-between border-t pt-5"><Switch label="Notificar equipe comercial" name="notify"/><Button variant="primary" type="submit">Salvar oportunidade</Button></div></form></div></main>}

@@ -1,30 +1,7 @@
 import type { VehicleListing } from "./components/vehicle-card";
 
-/**
- * Placeholder data — no inventory/database module exists yet
- * (docs/04-modules/marketplace.md, docs/04-modules/assets.md).
- * Replace once the assets module ships; keep tenant-neutral until then.
- */
 export const sampleListings: VehicleListing[] = [
-  {
-    id: "1",
-    title: "Heavy truck — sample listing",
-    priceInCents: 32000000,
-    location: "Sample city, ST",
-    status: "available",
-  },
-  {
-    id: "2",
-    title: "Trailer — sample listing",
-    priceInCents: 8500000,
-    location: "Sample city, ST",
-    status: "available",
-  },
-  {
-    id: "3",
-    title: "Bus — sample listing",
-    priceInCents: 45000000,
-    location: "Sample city, ST",
-    status: "reserved",
-  },
+  { id: "1", title: "Volvo FH 540 6x4", priceInCents: 79500000, location: "Curitiba, PR", status: "available" },
+  { id: "2", title: "Carreta Randon LS 3 eixos", priceInCents: 18900000, location: "Joinville, SC", status: "available" },
+  { id: "3", title: "Mercedes-Benz O-500 RSD", priceInCents: 62000000, location: "Cascavel, PR", status: "reserved" },
 ];
