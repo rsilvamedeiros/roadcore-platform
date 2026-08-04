@@ -2,6 +2,19 @@ import type { VehicleListing } from "./components/vehicle-card";
 
 export const sampleListings: VehicleListing[] = [
   {
+    id: "vw-8-150-e-worker",
+    title: "Volkswagen 8-150 E Worker",
+    priceInCents: null,
+    location: "Itapeva, SP",
+    status: "available",
+    year: "2004",
+    imageSrc: "/tenants/fogueiracaminhoes/vehicles/vw-8-150-e-worker/01.jpg",
+    gallery: ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"].map(file => `/tenants/fogueiracaminhoes/vehicles/vw-8-150-e-worker/${file}`),
+    specs: [["Ano","2004"],["Carroceria","5,30 m"],["Motor","MWM X10"],["Aspiração","Turbo Intercooler"],["Direção","Hidráulica"],["Pneus","Sem câmara"]],
+    features: ["Mecânica revisada","Motor MWM X10","Turbinado e com intercooler","Direção hidráulica","Climatizador","Pneus sem câmara"],
+    description: "Volkswagen 8-150 E Worker ano 2004, equipado com motor MWM X10, turbo e intercooler. Possui carroceria de 5,30 metros, direção hidráulica, climatizador e mecânica revisada.",
+  },
+  {
     id: "mercedes-l-1218-el",
     title: "Mercedes-Benz L 1218 EL",
     priceInCents: null,
