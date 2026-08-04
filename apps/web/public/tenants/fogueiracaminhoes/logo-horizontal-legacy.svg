@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 82" role="img" aria-labelledby="title">
+  <title id="title">Fogueira Caminhões</title>
+  <defs>
+    <linearGradient id="fire" x1="30" y1="75" x2="265" y2="5">
+      <stop stop-color="#8f090b"/>
+      <stop offset=".55" stop-color="#e31b23"/>
+      <stop offset="1" stop-color="#ff5357"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M14 47C20 19 63 7 151 7c75 0 126 9 144 35-18 26-68 35-144 35C66 77 24 68 14 47Z" fill="#101011" stroke="#fff" stroke-width="6"/>
+    <path d="M14 47C20 19 63 7 151 7c75 0 126 9 144 35-18 26-68 35-144 35C66 77 24 68 14 47Z" fill="none" stroke="url(#fire)" stroke-width="4"/>
+    <path d="M28 44c24-18 54-24 101-26-30 8-49 19-62 34 26 9 78 13 163 3-55 20-159 20-202-11Z" fill="url(#fire)" opacity=".28"/>
+    <path d="M216 68c27-1 51-6 72-15-18 15-44 24-79 27l11-8-4-4Z" fill="url(#fire)"/>
+    <text x="48" y="40" fill="url(#fire)" font-family="Arial Black,Arial,sans-serif" font-size="28" font-weight="900" font-style="italic" letter-spacing="-1.4">FOGUEIRA</text>
+    <text x="77" y="62" fill="#fff" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" font-style="italic" letter-spacing="1.2">CAMINHÕES</text>
+  </g>
+</svg>
