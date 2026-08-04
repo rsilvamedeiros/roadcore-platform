@@ -105,5 +105,5 @@
 - `packages/design-system/` — `@roadcore/design-system`: shared semantic design tokens (`src/styles/tokens.css`), consumed by `apps/web` (ADR 0003)
 - `packages/observability/` — stub package (`@roadcore/observability`), implementation pending
 - `packages/shared/` — stub package (`@roadcore/shared`), implementation pending
-- `packages/ui/` — `@roadcore/ui`: first primitives on Ark UI + Tailwind (`Button`, `Switch`), tested with Vitest/Testing Library/user-event
+- `packages/ui/` — `@roadcore/ui`: primitives on Ark UI + Tailwind (`Button`, `Input`, `Select`, `Checkbox`, `Switch`), tested with Vitest/Testing Library/user-event
 - `scripts/.gitkeep`
