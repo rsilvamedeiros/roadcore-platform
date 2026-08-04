@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "RoadCore | Gestão que move negócios",
   description: "Veículos, fretes e gestão para quem vive a estrada.",
+  icons: { icon: "/brand/favicon.svg" },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

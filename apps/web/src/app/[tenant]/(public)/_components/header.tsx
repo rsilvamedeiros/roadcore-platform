@@ -20,19 +20,20 @@ export function Header({ tenant }: HeaderProps) {
     { href: `/${tenant}/freight`, label: "Fretes" },
     { href: `/${tenant}/about`, label: "A empresa" },
   ];
-  const logo = theme.logoSrc ? <><Image src={theme.logoSrc} alt="" width={40} height={40} className="h-10 w-10 rounded-xl object-cover" /><span className="font-semibold">{theme.name}</span></> : <BrandLogo name={theme.name} />;
+  const logo = theme.logoSrc ? <Image src={theme.logoSrc} alt={theme.name} width={190} height={52} priority className="h-[52px] w-auto max-w-[180px] object-contain sm:max-w-[205px]" /> : <BrandLogo name={theme.name} />;
 
   return <>
-    <div className="bg-primary-900 py-2 text-center text-xs font-medium text-primary-100">Atendimento especializado em veículos pesados · Seg a sex, 8h às 18h</div>
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-white/90 backdrop-blur-xl">
-      <div className="page-shell flex h-[72px] items-center justify-between gap-5">
+    <div className="bg-[#111112] py-2 text-center text-[11px] font-medium text-slate-400"><span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-primary align-middle"/>Atendimento especializado em veículos pesados · Seg a sex, 8h às 18h</div>
+    <header className="sticky top-0 z-40 border-b border-black/5 bg-white/95 shadow-[0_1px_12px_rgba(0,0,0,.04)] backdrop-blur-xl">
+      <div className="page-shell flex h-[80px] items-center justify-between gap-5">
         <Link href={`/${tenant}`} className="flex items-center gap-3 text-foreground" aria-label={theme.name}>{logo}</Link>
         <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
-          {links.map((item) => <Link key={item.label} href={item.href} className="text-sm font-medium text-muted transition hover:text-primary">{item.label}</Link>)}
+          {links.map((item) => <Link key={item.label} href={item.href} className="relative py-7 text-[13px] font-semibold text-[#4b4b4b] transition after:absolute after:inset-x-0 after:bottom-4 after:h-0.5 after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:text-black hover:after:scale-x-100">{item.label}</Link>)}
         </nav>
-        <div className="hidden items-center gap-3 sm:flex">
-          <Link href={`/${tenant}/login`} className="text-sm font-semibold text-foreground hover:text-primary">Área do cliente</Link>
-          <Link href={`/${tenant}/contact`} className={buttonVariants("primary")}>Falar com especialista</Link>
+        <div className="hidden items-center gap-4 sm:flex">
+          <div className="hidden border-r pr-4 text-right xl:block"><p className="text-[9px] font-bold uppercase tracking-wider text-muted">Central de vendas</p><p className="mt-0.5 text-xs font-bold text-foreground">(41) 3333-2026</p></div>
+          <Link href={`/${tenant}/login`} className="text-[13px] font-semibold text-foreground hover:text-primary">Entrar</Link>
+          <Link href={`/${tenant}/contact`} className={buttonVariants("primary", "min-h-11 rounded-xl px-5 py-2 text-[13px] !text-white")}>Falar com especialista <span aria-hidden="true" className="ml-2">→</span></Link>
         </div>
         <div className="lg:hidden"><Drawer open={open} onOpenChange={setOpen} title="Navegação" trigger={<><svg viewBox="0 0 24 24" width="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16M4 12h16M4 17h16" /></svg><span className="sr-only">Abrir menu</span></>}>
           <nav className="flex flex-col gap-5">{links.map(item => <Link key={item.label} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}<Link href={`/${tenant}/login`} onClick={() => setOpen(false)}>Área do cliente</Link></nav>

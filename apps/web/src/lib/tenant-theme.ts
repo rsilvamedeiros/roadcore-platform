@@ -39,7 +39,7 @@ const defaultTheme: TenantTheme = {
 const tenantThemes: Record<string, TenantTheme> = {
   fogueiracaminhoes: {
     name: "Fogueira Caminhões",
-    logoSrc: "/tenants/fogueiracaminhoes/logo.jpg",
+    logoSrc: "/tenants/fogueiracaminhoes/logo-horizontal.svg",
     primary: {
       50: "#fdeded",
       100: "#fadbdb",
