@@ -19,7 +19,7 @@ export interface TenantTheme {
 }
 
 const defaultTheme: TenantTheme = {
-  name: "RoadCore Platform",
+  name: "RoadCore",
   logoSrc: null,
 };
 

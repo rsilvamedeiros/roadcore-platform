@@ -1,5 +1,3 @@
 import type { ReactNode } from "react";
-
-export default function SuperadminLayout({ children }: { children: ReactNode }) {
-  return <div className="flex min-h-full flex-col">{children}</div>;
-}
+import { BrandLogo } from "@/components/brand-logo";
+export default function SuperadminLayout({children}:{children:ReactNode}){return <div className="min-h-screen bg-[#f5f7fb] lg:grid lg:grid-cols-[240px_1fr]"><aside className="hidden bg-[#08152e] p-5 text-white lg:flex lg:flex-col"><BrandLogo inverted/><p className="mt-3 text-[10px] font-semibold uppercase tracking-[.18em] text-slate-500">Console SaaS</p><nav className="mt-9 space-y-1">{["Visão geral","Empresas","Planos e módulos","Domínios","Atendimento","Auditoria","Configurações"].map((x,i)=><a key={x} className={`block rounded-lg px-3 py-2.5 text-sm ${i===0?"bg-white/10 text-white":"text-slate-400 hover:text-white"}`}>{x}</a>)}</nav><div className="mt-auto text-xs text-slate-500">RoadCore Platform<br/>Ambiente de produção</div></aside><div><header className="flex h-16 items-center justify-between border-b bg-white px-6 sm:px-8"><div><p className="text-xs text-muted">Administração da plataforma</p><strong className="text-sm">Console RoadCore</strong></div><div className="flex items-center gap-3"><button className="rounded-lg border px-3 py-2 text-xs">Central de suporte</button><span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-xs font-bold text-white">SA</span></div></header>{children}</div></div>}

@@ -1,9 +1,4 @@
 import type { ReactNode } from "react";
-
-export default function AuthLayout({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex min-h-full flex-col items-center justify-center bg-surface">
-      {children}
-    </div>
-  );
-}
+import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
+export default async function AuthLayout({children,params}:{children:ReactNode;params:Promise<{tenant:string}>}){const {tenant}=await params;return <div className="grid min-h-screen lg:grid-cols-[.9fr_1.1fr]"><aside className="relative hidden overflow-hidden bg-[#08152e] p-12 text-white lg:flex lg:flex-col"><div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(37,99,235,.3),transparent_38%)]"/><Link href={`/${tenant}`} className="relative"><BrandLogo inverted/></Link><div className="relative mt-auto max-w-lg"><p className="text-xs font-semibold uppercase tracking-[.2em] text-blue-300">Sua operação, conectada</p><blockquote className="mt-5 text-3xl font-medium leading-tight tracking-tight">“Decisões melhores começam com uma visão completa do negócio.”</blockquote><div className="mt-8 flex gap-8 border-t border-white/10 pt-6 text-sm text-slate-400"><span>Operação segura</span><span>Dados protegidos</span><span>Suporte próximo</span></div></div></aside><section className="relative flex items-center justify-center bg-surface px-5 py-16"><Link href={`/${tenant}`} className="absolute left-6 top-6 lg:hidden"><BrandLogo/></Link>{children}</section></div>}
