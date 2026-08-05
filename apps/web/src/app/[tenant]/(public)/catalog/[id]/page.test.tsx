@@ -12,17 +12,18 @@ vi.mock("next/navigation", () => ({
 describe("ListingPage", () => {
   it("renders the listing details for a known id", async () => {
     const ui = await ListingPage({
-      params: Promise.resolve({ tenant: "default", id: "1" }),
+      params: Promise.resolve({ tenant: "fogueiracaminhoes", id: "vw-8-150-e-worker" }),
     });
     render(ui);
 
     expect(
-      screen.getByRole("heading", { name: "Heavy truck — sample listing" }),
+      screen.getByRole("heading", { name: "Volkswagen 8-150 E Worker" }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Contact seller" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Tenho interesse neste veículo/ })).toHaveAttribute(
       "href",
-      "/default/contact",
+      "/fogueiracaminhoes/contact",
     );
+    expect(screen.getByRole("region", { name: /Galeria de fotos/ })).toBeInTheDocument();
   });
 
   it("calls notFound for an unknown id", async () => {

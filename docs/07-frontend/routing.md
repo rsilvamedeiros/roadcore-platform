@@ -2,7 +2,7 @@
 
 ## Estrutura por tenant
 
-Todas as superfícies, exceto `superadmin`, vivem sob `/[tenant]/...`, onde `tenant` é o slug do cliente (ex: `/fogueiracaminhoes`). O slug `default` cobre o caso sem tenant definido; `/` redireciona para `/default`.
+Todas as superfícies, exceto `superadmin`, vivem sob `/[tenant]/...`, onde `tenant` é o slug do cliente (ex: `/fogueiracaminhoes`). Neste ambiente, `/` redireciona para o primeiro tenant, `/fogueiracaminhoes`, e URLs legadas sob `/default` preservam o caminho ao redirecionar para esse tenant.
 
 ## Resolução de tenant
 

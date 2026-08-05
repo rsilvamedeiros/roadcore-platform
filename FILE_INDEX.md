@@ -12,7 +12,7 @@
 - `turbo.json`
 - `tsconfig.json` (root, extends `packages/config/typescript/base.json`)
 - `apps/api/.gitkeep` (bootstrap pending)
-- `apps/web/` — Next.js App Router app (pnpm + Turborepo, Tailwind, Vitest/Testing Library, Playwright); `/` redirects to `/default`; surfaces under `src/app/[tenant]/`: `(public)`, `(auth)`, `admin`, `portal`, `backoffice`; `superadmin` stays outside `[tenant]` (cross-tenant)
+- `apps/web/` — Next.js App Router app (pnpm + Turborepo, Tailwind, Vitest/Testing Library, Playwright); `/` redirects to `/fogueiracaminhoes`; surfaces under `src/app/[tenant]/`: `(public)`, `(auth)`, `admin`, `portal`, `backoffice`; `superadmin` stays outside `[tenant]` (cross-tenant)
 - `apps/worker/.gitkeep` (bootstrap pending)
 - `docs/00-overview/glossary.md`
 - `docs/00-overview/product-manifest.md`
