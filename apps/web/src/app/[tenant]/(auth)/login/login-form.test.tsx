@@ -8,7 +8,7 @@ describe("LoginForm", () => {
   it("renders accessible login fields", () => {
     render(<LoginForm />);
 
-    expect(screen.getByRole("textbox", { name: "E-mail" })).toHaveAttribute("autocomplete", "email");
+    expect(screen.getByRole("textbox", { name: "E-mail ou usuário" })).toHaveAttribute("autocomplete", "username");
     expect(screen.getByLabelText("Senha")).toHaveAttribute("type", "password");
     expect(screen.getByRole("button", { name: /Entrar no ambiente/ })).toBeInTheDocument();
   });

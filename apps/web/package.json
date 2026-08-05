@@ -12,6 +12,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@roadcore/auth": "workspace:*",
     "@roadcore/design-system": "workspace:*",
     "@roadcore/ui": "workspace:*",
     "next": "16.3.0",

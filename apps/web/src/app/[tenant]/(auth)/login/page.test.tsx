@@ -15,5 +15,9 @@ describe("LoginPage", () => {
     expect(screen.getByText("Comercial")).toBeInTheDocument();
     expect(screen.getByText("Estoque")).toBeInTheDocument();
     expect(screen.getByText("Financeiro")).toBeInTheDocument();
+    expect(screen.getByText("Operações")).toBeInTheDocument();
+    expect(screen.getByText("Frota")).toBeInTheDocument();
+    expect(screen.getByText("Manutenção")).toBeInTheDocument();
+    expect(screen.getByText("Motorista")).toBeInTheDocument();
   });
 });

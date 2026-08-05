@@ -7,8 +7,8 @@ export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   return <form className="mt-8 flex flex-col gap-5" aria-label="Acesso à plataforma">
-    <label className="text-sm font-semibold text-foreground">E-mail
-      <Input aria-label="E-mail" name="email" type="email" autoComplete="email" placeholder="seuemail@empresa.com.br" required className="mt-2 min-h-12 bg-white" />
+    <label className="text-sm font-semibold text-foreground">E-mail ou usuário
+      <Input aria-label="E-mail ou usuário" name="identifier" type="text" autoComplete="username" placeholder="Digite seu e-mail ou usuário" required className="mt-2 min-h-12 bg-white" />
     </label>
     <label className="text-sm font-semibold text-foreground">Senha
       <span className="relative mt-2 block">
