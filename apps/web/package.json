@@ -2,6 +2,7 @@
   "name": "@roadcore/web",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,15 +10,25 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "cms:generate-types": "payload generate:types",
+    "cms:generate-importmap": "payload generate:importmap",
+    "cms:migrate:create": "payload migrate:create",
+    "cms:migrate": "payload migrate"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.87.0",
+    "@payloadcms/next": "^3.87.0",
+    "@payloadcms/plugin-multi-tenant": "^3.87.0",
+    "@payloadcms/richtext-lexical": "^3.87.0",
     "@roadcore/auth": "workspace:*",
     "@roadcore/design-system": "workspace:*",
     "@roadcore/ui": "workspace:*",
     "next": "16.3.0",
+    "payload": "^3.87.0",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "sharp": "^0.35.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.1",

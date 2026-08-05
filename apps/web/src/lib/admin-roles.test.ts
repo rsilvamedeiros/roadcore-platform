@@ -35,7 +35,7 @@ describe("admin role templates", () => {
   it("gives administrators every administrative screen and permission", () => {
     const administrator = getAdminRoleTemplate("administrator");
 
-    expect(administrator?.permissions).toHaveLength(41);
-    expect(getScreensForRole(administrator!)).toHaveLength(10);
+    expect(administrator?.permissions).toHaveLength(44);
+    expect(getScreensForRole(administrator!)).toHaveLength(11);
   });
 });
