@@ -60,7 +60,7 @@ export function Header({ tenant }: HeaderProps) {
       label: "A empresa",
       href: route("/about"),
       children: [
-        { label: "Sobre a Fogueira", href: route("/about"), description: "Nossa história e nosso jeito" },
+        { label: `Sobre ${theme.name}`, href: route("/about"), description: "Nossa história e nosso jeito" },
         { label: "Conteúdos", href: route("/blog"), description: "Informação para quem vive a estrada" },
         { label: "Fale conosco", href: route("/contact"), description: "Atendimento próximo e direto" },
         { label: "Anuncie sua marca", href: route("/advertise"), description: "Publicidade para o setor pesado" },

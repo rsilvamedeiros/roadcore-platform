@@ -1,3 +1,85 @@
 import { Button, Input, Select } from "@roadcore/ui";
-const profiles=[{label:"Revenda de veículos",value:"dealer"},{label:"Peças e serviços",value:"services"},{label:"Instituição financeira",value:"finance"},{label:"Outra empresa",value:"other"}];
-export default function AdvertisePage(){return <main className="flex-1"><section className="bg-[#111112] text-white"><div className="page-shell grid gap-12 py-20 lg:grid-cols-[1fr_.85fr]"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-primary-400">RoadCore para empresas</p><h1 className="mt-5 text-balance text-5xl font-semibold tracking-[-.045em] sm:text-6xl">Sua marca no centro dos negócios pesados.</h1><p className="mt-6 max-w-xl text-lg leading-8 text-neutral-400">Anuncie veículos, serviços ou soluções para uma audiência qualificada de transportadores, frotistas e compradores.</p><div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-7">{[["+42 mil","visitas/mês"],["68%","decisores"],["26","estados"]].map(([a,b])=><div key={b}><strong className="text-xl text-primary-400">{a}</strong><p className="mt-1 text-[10px] text-neutral-500">{b}</p></div>)}</div></div><form className="rounded-3xl bg-white p-7 text-foreground"><h2 className="text-xl font-semibold">Receba o mídia kit</h2><div className="mt-6 grid gap-4"><Input aria-label="Nome" placeholder="Seu nome"/><Input aria-label="Empresa" placeholder="Empresa"/><Input aria-label="Contato" placeholder="E-mail ou WhatsApp"/><Select label="Perfil da empresa" name="profile" options={profiles} placeholder="Selecione"/><Button variant="primary">Quero anunciar</Button></div></form></div></section><section className="page-shell py-20"><p className="eyebrow">Formatos comerciais</p><h2 className="mt-3 text-3xl font-semibold">Presença que gera resultado.</h2><div className="mt-10 grid gap-5 md:grid-cols-3">{[["Anúncios patrocinados","Destaque seus veículos nas primeiras posições e vitrines editoriais."],["Publicidade de marca","Banners premium, conteúdo patrocinado e projetos especiais."],["Perfil profissional","Estoque, contatos, reputação e página exclusiva para sua empresa."]].map(([a,b],i)=><article key={a} className="panel p-7"><span className="text-sm font-bold text-primary">0{i+1}</span><h3 className="mt-8 text-lg font-semibold">{a}</h3><p className="mt-3 text-sm leading-6 text-muted">{b}</p></article>)}</div></section></main>}
+const profiles = [
+  { label: "Revenda de veículos", value: "dealer" },
+  { label: "Peças e serviços", value: "services" },
+  { label: "Instituição financeira", value: "finance" },
+  { label: "Outra empresa", value: "other" },
+];
+export default function AdvertisePage() {
+  return (
+    <main className="flex-1">
+      <section className="bg-[#111112] text-white">
+        <div className="page-shell grid gap-12 py-20 lg:grid-cols-[1fr_.85fr]">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-primary-400">
+              RoadCore para empresas
+            </p>
+            <h1 className="mt-5 text-balance text-5xl font-semibold tracking-[-.045em] sm:text-6xl">
+              Sua marca no centro dos negócios pesados.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-400">
+              Anuncie veículos, serviços ou soluções para uma audiência
+              qualificada de transportadores, frotistas e compradores.
+            </p>
+            <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-7">
+              {[
+                ["+42 mil", "visitas/mês"],
+                ["68%", "decisores"],
+                ["26", "estados"],
+              ].map(([a, b]) => (
+                <div key={b}>
+                  <strong className="text-xl text-primary-400">{a}</strong>
+                  <p className="mt-1 text-[10px] text-neutral-500">{b}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <form className="rounded-3xl bg-white p-7 text-foreground">
+            <h2 className="text-xl font-semibold">Receba o mídia kit</h2>
+            <div className="mt-6 grid gap-4">
+              <Input aria-label="Nome" placeholder="Seu nome" />
+              <Input aria-label="Empresa" placeholder="Empresa" />
+              <Input aria-label="Contato" placeholder="E-mail ou WhatsApp" />
+              <Select
+                label="Perfil da empresa"
+                name="profile"
+                options={profiles}
+                placeholder="Selecione"
+              />
+              <Button variant="primary">Quero anunciar</Button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section className="page-shell py-20">
+        <p className="eyebrow">Formatos comerciais</p>
+        <h2 className="mt-3 text-3xl font-semibold">
+          Presença que gera resultado.
+        </h2>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {[
+            [
+              "Anúncios patrocinados",
+              "Destaque seus veículos nas primeiras posições e vitrines editoriais.",
+            ],
+            [
+              "Publicidade de marca",
+              "Banners premium, conteúdo patrocinado e projetos especiais.",
+            ],
+            [
+              "Perfil profissional",
+              "Estoque, contatos, reputação e página exclusiva para sua empresa.",
+            ],
+          ].map(([a, b], i) => (
+            <article key={a} className="panel p-7">
+              <span className="text-sm font-bold text-primary">0{i + 1}</span>
+              <h3 className="mt-8 text-lg font-semibold">{a}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted">{b}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="bg-surface"><div className="page-shell py-20"><div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="eyebrow">Processo comercial</p><h2 className="mt-3 text-3xl font-semibold">Da estratégia à publicação.</h2><p className="mt-4 leading-7 text-muted">Cada proposta considera objetivo, público, duração e formato. Entregas e métricas são combinadas antes da ativação.</p></div><div className="grid gap-4 sm:grid-cols-2">{[["Briefing","Entendemos produto, objetivo e região."],["Plano","Definimos formatos, período e investimento."],["Produção","Validamos peças, links e mensagem."],["Acompanhamento","Consolidamos resultados da campanha."]].map(([title,copy],index) => <article key={title} className="rounded-2xl border bg-white p-5"><span className="text-xs font-bold text-primary">0{index + 1}</span><h3 className="mt-5 font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-muted">{copy}</p></article>)}</div></div></div></section>
+    </main>
+  );
+}
